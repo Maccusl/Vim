@@ -30,10 +30,7 @@ cp -rf mamba-1p1p1/mamba_ssm /home/zju/anaconda3/envs/mamba/lib/python3.10/site-
 
 运行指令训练
 ```
-#运行
-python main.py --model vim_tiny_patch16_224_bimambav2_final_pool_mean_abs_pos_embed_with_midclstok_div2 --batch-size 64 --drop-path 0.05 --weight-decay 0.05 --lr 1e-3 --num_workers 25  --output_dir ./output/vim_tiny_patch16_224_bimambav2_final_pool_mean_abs_pos_embed_with_midclstok_div2 --no_amp --distillation-type soft --teacher-path /root/vit_base_patch16_224_in21k.pth --teacher-model vit_base_patch16_224_in21k --epochs 600
-
-#v2
-python main.py --model vim_tiny_patch16_224_bimambav2_final_pool_mean_abs_pos_embed_with_midclstok_div2 --batch-size 64 --drop-path 0.05 --weight-decay 0.05 --lr 1e-3 --num_workers 25  --output_dir ./output/vim_tiny_patch16_224_bimambav2_final_pool_mean_abs_pos_embed_with_midclstok_div2 --no_amp --distillation-type soft --teacher-path /root/vit_base_patch16_224_in21k.pth --teacher-model vit_base_patch16_224_in21k --epochs 600
+#使用你的imagenet目录替换<path_to_IN1K_dataset>
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python -m torch.distributed.launch --nproc_per_node=8 --use_env main.py --model vim_tiny_patch16_224_bimambav2_final_pool_mean_abs_pos_embed_with_midclstok_div2 --batch-size 128 --drop-path 0.0 --weight-decay 0.1 --num_workers 25 --data-path <path_to_IN1K_dataset> --output_dir ./output/vim_tiny_patch16_224_bimambav2_final_pool_mean_abs_pos_embed_with_midclstok_div2 --no_amp
 ```
 
