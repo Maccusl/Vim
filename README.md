@@ -24,7 +24,7 @@ pip install mamba_ssm-1.1.1+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.
 
 # 用conda env list 查看刚才安装的mamba环境的路径，我的mamba环境在/home/zju/anaconda3/envs/mamba
 conda env list  
-#用官方项目里的mamba_ssm替换安装在conda环境里的mamba_ssm
+#用项目里的mamba_ssm替换安装在conda环境里的mamba_ssm
 cp -rf mamba-1p1p1/mamba_ssm /home/zju/anaconda3/envs/mamba/lib/python3.10/site-packages
 ```
 
